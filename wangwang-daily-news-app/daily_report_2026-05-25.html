@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日行业资讯日报 | 2026年5月24日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: #f5f6f8;
+    color: #2c3e50;
+    line-height: 1.7;
+    padding: 20px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    padding: 32px 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .header .date {
+    font-size: 15px;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+  .summary-bar {
+    background: #fff3cd;
+    border-left: 4px solid #f39c12;
+    margin: 20px 40px;
+    padding: 14px 20px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: #856404;
+    line-height: 1.8;
+  }
+  .summary-bar strong { color: #d35400; }
+  .content { padding: 0 40px 40px; }
+  .section {
+    margin-top: 28px;
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .section-header.red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+  .section-header.blue { background: linear-gradient(135deg, #2980b9, #1a5276); }
+  .section-header.green { background: linear-gradient(135deg, #27ae60, #1e8449); }
+  .section-header.purple { background: linear-gradient(135deg, #8e44ad, #6c3483); }
+  .section-header.orange { background: linear-gradient(135deg, #e67e22, #d35400); }
+  .section-body { padding: 16px 22px; background: #fafbfc; }
+  .sub-module {
+    margin-bottom: 18px;
+  }
+  .sub-module:last-child { margin-bottom: 0; }
+  .sub-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #d5dbe3;
+  }
+  .sub-title .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .dot.dairy { background: #e74c3c; }
+  .dot.beverage { background: #3498db; }
+  .dot.snack { background: #f39c12; }
+  .dot.restaurant { background: #e67e22; }
+  .dot.retail { background: #16a085; }
+  .dot.topic { background: #9b59b6; }
+  .news-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 14px;
+    color: #444;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+    font-weight: 600;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .tag.new { background: #fee2e2; color: #c0392b; }
+  .tag.hot { background: #fff3cd; color: #d35400; }
+  .tag.data { background: #d4edda; color: #155724; }
+  .tag.event { background: #cce5ff; color: #004085; }
+  .tag.warn { background: #f8d7da; color: #721c24; }
+  .news-item .url {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+    word-break: break-all;
+  }
+  .commodity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .commodity-card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .commodity-card .name {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .commodity-card .price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2px;
+  }
+  .commodity-card .change {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .change.up { color: #e74c3c; }
+  .change.down { color: #27ae60; }
+  .commodity-card .unit {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 2px;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #aaa;
+    border-top: 1px solid #eee;
+    margin: 0 40px;
+  }
+  .highlight-box {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0);
+    border: 1px solid #f9e79f;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #7d6608;
+  }
+  .highlight-box strong { color: #b7950b; }
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted #eee;
+  }
+  .data-row .label { color: #888; }
+  .data-row .value { font-weight: 600; color: #2c3e50; }
+  .divider {
+    margin: 12px 0;
+    border: none;
+    border-top: 1px solid #eef1f5;
+  }
+  @media (max-width: 600px) {
+    .container { border-radius: 0; }
+    .header, .content, .summary-bar { padding-left: 16px; padding-right: 16px; }
+    .commodity-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>/*__WIDE__*/@media (min-width:1000px){.wrap{max-width:1500px !important}body{font-size:16px !important}.c-item,.a-item{font-size:16px !important}.card .c-tit,.ai-card .a-tit{font-size:18px !important}.sec-tag{font-size:18px !important;padding:7px 20px !important}.topbar .tb-push,.topbar .tb-content{font-size:14px !important}.topbar .tb-tag{font-size:13px !important}.com-card .c-icon{font-size:26px !important}.com-card .c-name{font-size:15px !important}.com-card .c-val{font-size:34px !important}.com-card .c-unit{font-size:13px !important}.com-card .c-chg{font-size:16px !important}.ww-card{font-size:16px !important}.ww-card .ww-t{font-size:18px !important}.badge-new,.src-link,.sec-tag .tag-num,.card .c-tit .c-num,.ai-card .a-tit .c-num{font-size:12px !important}}</style></head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>每日行业资讯日报</h1>
+    <div class="date">2026年5月24日（周日）</div>
+    <div class="subtitle">资讯覆盖时间：2026年5月23日 - 5月24日 | 数据来源：公开媒体报道</div>
+  </div>
+
+  <!-- SUMMARY BAR -->
+  <div class="summary-bar">
+    <strong>今日要点：</strong>① 电解质水赛道全面混战，2026年超19款新品入局，奈雪跨界加入；② 山姆山东双店开业后遇"试吃乱象"被迫暂停试吃；③ 福建"问题杨梅"事件追责升级，23名党员干部被问责；④ 2026全球AI技术大会在杭州开幕，10位院士共话AI前沿；⑤ 胖东来自营产品因原料涨价调价；⑥ 棕榈油供需转宽、白糖震荡微跌、混凝土指数同比跌超10%
+  </div>
+
+  <!-- ========== SECTION 1: 行业与竞品动态 ========== -->
+  <div class="content">
+
+    <div class="section">
+      <div class="section-header red">📊 一、行业与竞品动态</div>
+      <div class="section-body">
+
+        <!-- 1.1 乳制品类 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot dairy"></span>1.1 乳制品类</div>
+
+          <div class="news-item">
+            <span class="tag hot">格局重塑</span>
+            <strong>中国乳业格局深度调整：伊利确立"一超"优势，光明暴跌、君乐宝冲刺港股。</strong>
+            伊利2026年Q1营收利润双增，成为唯一实现双增的综合性乳企；光明乳业Q1归母净利润仅6665万元，同比暴跌52.74%；君乐宝加速资本化冲刺港股上市；新乳业利润暴增近40%。乳业已从"双雄"格局转向"一超无强"局面。
+            <span class="url">https://baijiahao.baidu.com/s?id=1865349589397543412</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag new">行业活动</span>
+            <strong>中乳协第32届年会即将召开，蒙牛、伊利、君乐宝、光明等头部乳企将亮相。</strong>
+            年会召开在即，理事单位蒙牛、伊利、得益、光明乳业等将在官方展位参与行业标准讨论。各省乳企代表如山东得益、北京三元、上海光明、河北君乐宝、四川新希望等也将参展。细分领域标杆企业亦将集体亮相。
+            <span class="url">https://baijiahao.baidu.com/s?id=1865973087403776920</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag data">市场趋势</span>
+            <strong>功能性乳品逆势突围，成行业最大亮点。</strong>
+            2025年传统白奶销售额同比下滑6.4%、酸奶下滑5.8%，但功能性乳品赛道逆势增长。常温酸奶CR5市场份额合计达93.82%，伊利以超60%份额断层领跑。低温纯牛奶CR5由君乐宝、光明、蒙牛、伊利、新乳业组成，合计67.88%。
+            <span class="url">https://www.thepaper.cn/newsDetail_forward_33155661</span>
+          </div>
+        </div>
+
+        <!-- 1.2 饮料类 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot beverage"></span>1.2 饮料类</div>
+
+          <div class="highlight-box">
+            <strong>🔥 本周焦点：电解质水赛道全面升级为"巨头混战"格局</strong><br>
+            2026年以来已有超19款电解质水新品面世，农夫山泉、蒙牛、可口可乐、奈雪等各领域巨头纷纷入局。赛道从早期的外星人vs宝矿力双寡头，升级为全维度混战。行业规模从2022年的27亿元暴增至2025年的约200亿元，连续三年保持30%以上增速。
+          </div>
+
+          <div class="news-item">
+            <span class="tag hot">新品入局</span>
+            <strong>奈雪的茶跨界推出电解质水，5月中旬官方旗舰店上线两款口味。</strong>
+            作为新茶饮第一股，奈雪跨界入局电解质水赛道。此前，农夫山泉（春节前后）、蒙牛"乳钙电解质饮料"（3月）、李子园（3月）、可口可乐Powerade爆锐（4月山姆首发）已先后推出新品。新锐品牌好望水主打"电解质+中式养生"（甘草、人参），轻上聚焦左旋肉碱减脂场景。
+            <span class="url">https://www.sohu.com/a/1027212805_250147</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag data">竞争格局</span>
+            <strong>东鹏"补水啦"2025年营收32.74亿同比增119%，市占率超越外星人位居品类第一。</strong>
+            元气森林外星人2025年同比增34%预计超50亿元。核心竞争维度：终端渠道掌控力（农夫山泉300万终端、80万台智能冰柜）、价格策略（3-5元价格带占比超60%）、产品差异化（"电解质+"趋势）。
+            <span class="url">https://www.sohu.com/a/1027212805_250147</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag new">茶饮趋势</span>
+            <strong>2026茶咖新风向：芭乐柑橘成春季顶流，咸奶茶从冬日限定走向四季百搭。</strong>
+            茶百道芭乐系列首日销量逼近40万杯；地方食材出圈（木姜子、树番茄、滇橄榄）；奶盖走向"甜品化"；"鸳鸯"茶咖回归焕新。茶饮行业进入3020亿元规模的高质量发展新阶段，10-20元为主力价格带。
+            <span class="url">https://so.html5.qq.com/page/real/search_news?docid=70000021_91669ce08c210752</span>
+          </div>
+        </div>
+
+        <!-- 1.3 休闲零食类 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot snack"></span>1.3 休闲零食类</div>
+
+          <div class="news-item">
+            <span class="tag data">行业数据</span>
+            <strong>量贩零食行业预计2026年突破900亿元，万辰集团、鸣鸣很忙领跑。</strong>
+            国内零食量贩市场规模从2022年约200亿元攀升至2024年超600亿元，预计2026年突破900亿元。量贩零食正从单一零食店向全品类"社区折扣超市"延伸，涵盖日化、文具及烘焙等品类。
+            <span class="url">https://www.baogaobox.com/insights/260521000027575.html</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag hot">企业动态</span>
+            <strong>零食双雄"复活赛"：良品铺子暴力扭亏，三只松鼠稳守王座。</strong>
+            2026年Q1休闲零食行业迎来久违"开门红"，良品铺子与三只松鼠交出回暖财报。2025年行业饱受原材料涨价、渠道变革、消费降级冲击，2026年Q1头部企业业绩回升。
+            <span class="url">https://www.myzaker.com/article/6a0d1b7f8e9f09277b03b719</span>
+          </div>
+        </div>
+
+        <!-- 1.4 餐饮连锁相关产品 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot restaurant"></span>1.4 餐饮连锁相关产品</div>
+
+          <div class="news-item">
+            <span class="tag hot">出海榜单</span>
+            <strong>"2026中国餐饮/新茶饮出海品牌50榜单"揭晓，瑞幸第6、快乐番薯第14。</strong>
+            瑞幸咖啡海外在业门店超160家，进入新加坡、马来西亚、美国等市场；快乐番薯在8个国家和地区开设52家门店。榜单覆盖咖啡、新茶饮、火锅、快餐等多个赛道。
+            <span class="url">https://so.html5.qq.com/page/real/search_news?docid=70000021_17469db00ea78452</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag new">门店创新</span>
+            <strong>肯德基三合一门店荆州首店开业，集肯德基+肯悦咖啡+KPRO轻食于一体。</strong>
+            肯德基推出"三合一"创新门店模式，将传统肯德基、肯悦咖啡与轻食子品牌肯律（KPRO）整合在同一门店，丰富消费场景。
+            <span class="url">https://so.html5.qq.com/page/real/search_news?docid=70000021_3416a13044548952</span>
+          </div>
+        </div>
+
+        <!-- 1.5 渠道与零售动态 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot retail"></span>1.5 渠道与零售动态</div>
+
+          <div class="highlight-box">
+            <strong>🔴 热点：山姆山东首秀遇"试吃翻车"，被迫暂停试吃服务</strong><br>
+            5月15日山姆济南青岛双店同开，开业不到一周即出现顾客大规模拆正价商品食用乱象，被网友戏称"国内首家安卓门店"。此事引发行业对会员制商超"试吃经济学"和消费者契约精神的广泛讨论。
+          </div>
+
+          <div class="news-item">
+            <span class="tag hot">山姆乱象</span>
+            <strong>山姆济南青岛双店开业后顾客拆正价商品食用，被迫暂停试吃（2026-05-24报道）。</strong>
+            济南门店高峰期排队近3小时，限流2000人；青岛门店同样人满为患。开业不到一周，社交平台大量曝光：货架上摆着吃剩的鸡骨头、饮料被喝光丢弃、吃剩的牛肋骨包装盒乱扔。山姆客服回应"领导很重视"，已暂停试吃服务。
+            <span class="url">https://caifuhao.eastmoney.com/news/20260524153223110897250</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag event">调价动态</span>
+            <strong>胖东来自营产品5月17日起调价：果蔬净8.7→10元，洗衣液19.7→21.5元。</strong>
+            胖东来客服称因国际原材料涨价，综合考虑后调价。回应称若后续原材料价格回落将优化价格。此前多个零售巨头（山姆、盒马、京东、美团）纷纷推出自有商品，代工厂订单激增。
+            <span class="url">https://tech.sina.cn/2026-05-25/detail-inhzafps2691321.d.html</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag data">门店扩张</span>
+            <strong>拓竹科技（Bambu Lab）入驻全国64家山姆会员商店。</strong>
+            5月22日宣布正式入驻，自5月中旬起产品陆续登陆，设置约1平方米展示空间，展示A1 3D打印机及成品模型，下一步将进入更多商超渠道。
+            <span class="url">https://so.html5.qq.com/page/real/search_news?docid=70000021_0856a13b73792252</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag data">商超转型</span>
+            <strong>永辉超市Q1扭亏为盈，门店从775家锐减至392家。</strong>
+            永辉线上超市APP单日新增用户自2025年4月起显著提升，2026年2月中旬单日新增超7万人。公司通过断臂求生式的关店调整实现盈利，向胖东来模式学习转型。
+            <span class="url">https://www.wwo.com.cn/shuma/202605/323262.html</span>
+          </div>
+        </div>
+
+        <!-- 1.6 食品热度话题/其他 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot topic"></span>1.6 食品热度话题 / 其他</div>
+
+          <div class="highlight-box">
+            <strong>⚠️ 本周食品安全舆情聚焦：福建"问题杨梅"问责升级</strong><br>
+            5月24日最新进展：23名党员干部被问责（含2人免职），5人被刑拘，行政立案12起、刑事立案2起，查扣问题杨梅225公斤并追回540公斤，多地市场停售。杭州寿司郎被罚3.8万元全省排查。
+          </div>
+
+          <div class="news-item">
+            <span class="tag warn">食品安全</span>
+            <strong>福建"问题杨梅"事件追责升级：23名党员干部被问责（5月24日通报）。</strong>
+            其中2人免职、13人党纪政务立案、2人诫勉、6人通报批评。5家涉事收购点被查处，行政立案12起、刑事立案2起、刑事拘留5人。查扣问题杨梅225公斤、追回540公斤、查扣违规添加剂20.1公斤并全部销毁。嘉兴水果市场全面停售福建杨梅，济南、郑州停进涉产地货源。漳州即日起开展45天专项整治。
+            <span class="url">https://news.foodmate.net/2026/05/744145.html</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag warn">企业违规</span>
+            <strong>杭州寿司郎多项违规被罚3.8万元，浙江全省突击检查12家门店。</strong>
+            违规事项：无证销售冷加工糕点、专间管理不规范、餐具清洗消毒不到位（10只铝盘均发现水渍和食物残渣）。没收违法所得28,446元，全省责令整改5家、立案查处1家。
+            <span class="url">https://news.foodmate.net/2026/05/744145.html</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag event">合规动态</span>
+            <strong>5月食品合规密集落地：194项国标+8条法规生效，网络食品销售监管新规正式落地。</strong>
+            网络食品销售监管新规细化平台与入网商家的食品安全主体责任，实验动物微生物学等多项国标同期施行。
+            <span class="url">https://zhuanlan.zhihu.com/p/2033248321406493945</span>
+          </div>
+
+          <div class="news-item">
+            <span class="tag warn">消费维权</span>
+            <strong>本周多地消费维权事件频发：桂林米粉"阴阳菜单"、丽江餐厅价格欺诈、稻香村"反向抹零"。</strong>
+            桂林阳朔米粉店本地人7元/游客13元被立案；丽江古城区餐厅"78元/锅"变"78元半斤"退费221元并立案；北京稻香村加盟店39.95元实收40元已整改。
+            <span class="url">https://news.foodmate.net/2026/05/744145.html</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== SECTION 2: 大宗行情 ========== -->
+    <div class="section">
+      <div class="section-header blue">📈 二、大宗行情</div>
+      <div class="section-body">
+
+        <div class="commodity-grid">
+          <!-- 棕榈油 -->
+          <div class="commodity-card">
+            <div class="name">🛢️ 棕榈油</div>
+            <div class="price">9,314</div>
+            <div class="unit">元/吨（现货基准价）</div>
+            <div class="change down">▼ 供需转宽</div>
+          </div>
+          <!-- 白糖 -->
+          <div class="commodity-card">
+            <div class="name">🍬 白糖期货</div>
+            <div class="price">5,346</div>
+            <div class="unit">元/吨（主力合约）</div>
+            <div class="change down">▼ 25 (-0.47%)</div>
+          </div>
+          <!-- 混凝土 -->
+          <div class="commodity-card">
+            <div class="name">🏗️ 混凝土指数</div>
+            <div class="price">281.61</div>
+            <div class="unit">CONCPI（5月22日）</div>
+            <div class="change down">▼ 0.79 (-0.28%)</div>
+          </div>
+        </div>
+
+        <!-- 棕榈油详情 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot dairy"></span>2.1 棕榈油</div>
+
+          <div class="data-row"><span class="label">现货基准价</span><span class="value">9,314 元/吨</span></div>
+          <div class="data-row"><span class="label">长沙现货</span><span class="value">9.00 元/公斤</span></div>
+          <div class="data-row"><span class="label">马来西亚出口（5月前20日）</span><span class="value" style="color:#27ae60">ITS: -13.9% / ASA: -20.5%</span></div>
+          <div class="data-row"><span class="label">核心扰动</span><span class="value">印尼宣布新出口政策（细节待公布），情绪推高后回落</span></div>
+          <div class="data-row"><span class="label">供需格局</span><span class="value" style="color:#27ae60">增产周期+出口疲软，供需转宽</span></div>
+          <div class="data-row"><span class="label">成本支撑</span><span class="value">能源价格（柴油141.93美元/桶）提供一定支撑</span></div>
+          <div class="data-row"><span class="label">数据来源</span><span class="value" style="font-size:12px">100ppi.com / 新浪财经华安期货报告</span></div>
+
+          <hr class="divider">
+
+          <div class="news-item">
+            <span class="tag data">行情分析</span>
+            <strong>华安期货：棕榈油供给宽松，价格承压。</strong>
+            印尼宣布涉及棕榈油的新出口政策引发供给担忧，周内情绪推高价格但随后快速回落。船货检验机构数据显示5月前20日马棕出口环比下降13.9%-20.5%。终端对高价棕榈油接受度低，基差走弱。印尼B50及厄尔尼诺题材时有搅动，但基本面疲软下支撑有限。
+            <span class="url">https://finance.sina.cn/2026-05-24/detail-inhyytnn4408298.d.html</span>
+          </div>
+        </div>
+
+        <!-- 白糖详情 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot snack"></span>2.2 白糖</div>
+
+          <div class="data-row"><span class="label">主力合约价格</span><span class="value">5,346 元/吨</span></div>
+          <div class="data-row"><span class="label">涨跌</span><span class="value" style="color:#27ae60">-25 元/吨（-0.47%）</span></div>
+          <div class="data-row"><span class="label">日内区间</span><span class="value">5,339 - 5,378 元/吨</span></div>
+          <div class="data-row"><span class="label">昨收</span><span class="value">5,371 元/吨</span></div>
+          <div class="data-row"><span class="label">交易市场</span><span class="value">郑州商品交易所</span></div>
+          <div class="data-row"><span class="label">行情研判</span><span class="value">5400-5500元/吨区间震荡（概率约65%）</span></div>
+          <div class="data-row"><span class="label">数据来源</span><span class="value" style="font-size:12px">zscha.com / 金投期货 / 生意社</span></div>
+
+          <hr class="divider">
+
+          <div class="news-item">
+            <span class="tag data">趋势分析</span>
+            <strong>5月下旬白糖行情：5400-5500元/吨区间震荡概率约65%。</strong>
+            云南2025/26榨季即将进入收榨高峰，新糖供应增量逐步收窄。国内商业库存去化节奏及夏季消费旺季启动为后续关注重点，进口许可证批放节奏和进口量变化亦需密切跟踪。
+            <span class="url">https://baijiahao.baidu.com/s?id=1865540673417975978</span>
+          </div>
+        </div>
+
+        <!-- 混凝土详情 -->
+        <div class="sub-module">
+          <div class="sub-title"><span class="dot retail"></span>2.3 混凝土</div>
+
+          <div class="data-row"><span class="label">全国价格指数</span><span class="value">281.61（CONCPI，5月22日）</span></div>
+          <div class="data-row"><span class="label">较前一期</span><span class="value" style="color:#27ae60">-0.79点（-0.28%）</span></div>
+          <div class="data-row"><span class="label">去年同期</span><span class="value">313.49</span></div>
+          <div class="data-row"><span class="label">同比变化</span><span class="value" style="color:#27ae60">-31.88点（-10.17%）</span></div>
+          <div class="data-row"><span class="label">建材工业景气指数</span><span class="value">100.8点（5月），高于临界点，处景气区间</span></div>
+          <div class="data-row"><span class="label">区域最高</span><span class="value" style="color:#e74c3c">海南 391.20</span></div>
+          <div class="data-row"><span class="label">区域最低</span><span class="value">贵州 192.01</span></div>
+          <div class="data-row"><span class="label">数据来源</span><span class="value" style="font-size:12px">concrete365.com / ccpa.com.cn</span></div>
+
+          <hr class="divider">
+
+          <div class="news-item">
+            <span class="tag data">行业景气</span>
+            <strong>5月建筑材料工业景气指数回升至100.8点，重回景气区间。</strong>
+            比上月回升2.3点，但比上年同月低2.0点。价格指数99.8点处于非景气区间（较上月回落0.3点），生产指数高于临界点。混凝土价格指数同比跌幅达10.17%，区域分化显著。
+            <span class="url">https://www.ccpa.com.cn/site/content/24585.html</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== SECTION 3: AI与智能制造 ========== -->
+    <div class="section">
+      <div class="section-header purple">🤖 三、AI与智能制造</div>
+      <div class="section-body">
+
+        <div class="highlight-box">
+          <strong>🔷 本周焦点：2026全球人工智能技术大会在杭州盛大开幕</strong><br>
+          5月23-24日，GAITC 2026在杭州未来科技城举办，以"交叉、融合、相生、共赢"为主题，10位中外院士及200余位产学研代表参会，17场专题分论坛覆盖前沿技术、民生应用、产业生态和人才培育。
+        </div>
+
+        <div class="news-item">
+          <span class="tag hot">重磅会议</span>
+          <strong>2026全球人工智能技术大会（GAITC 2026）5月23-24日在杭州举办。</strong>
+          由中国人工智能学会（CAAI）主办，连续第七年在杭州未来科技城举办。浙江省委常委、杭州市委书记刘非出席并表示将打造一流AI创新生态。大会围绕AI基础理论、智能制造、物理智能与数据智能、农业智能、城市环境、AI安全与大语言模型等议题展开研讨。
+          <span class="url">https://www.chinanews.com.cn/cj/2026/05-24/10627643.shtml</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag event">成果发布</span>
+          <strong>大会期间多项重要成果发布：《人工智能关键能力清单1.0》发布，国家级AI产业知识产权运营中心揭牌。</strong>
+          2026年度CAAI-蚂蚁科研基金（AGI专项）发布；2026全球人工智能创新创业大赛启动；余杭区意向落地项目签约。同期举办人工智能互动体验展、"CAAI走进高校/企业"、医院AI真实场景观摩、医疗大模型精调工作坊等活动。
+          <span class="url">https://www.chinanews.com.cn/cj/2026/05-24/10627643.shtml</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag data">产业趋势</span>
+          <strong>AI+制造业深度融合加速落地，2026年工业智能化转型进入新阶段。</strong>
+          国务院印发《关于深入实施"人工智能+"行动的意见》，要求到2027年率先实现AI与产业广泛深度融合；工信部发布《"人工智能+制造"行动方案》。业内人士认为，AI赋能下中国制造业正迎来智能发展机遇期，工业智能化转型已从"要不要"转向"如何更快落地"。
+          <span class="url">https://www.chinanews.com/cj/2026/05-21/10626169.shtml</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag new">终端展览</span>
+          <strong>2026全球人工智能终端展在深圳开幕（5月14-15日），数千款AI终端亮相。</strong>
+          以"端启未来·万物新生"为主题，聚焦AI终端落地、具身智能、行业数智化等核心赛道，汇聚全球数千款前沿智能产品，打造AI技术从实验室到产业一线的沉浸式展示。
+          <span class="url">https://www.sznews.com/news/content/2026-05/15/content_32051065.htm</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== SECTION 4: 旺旺资讯专栏 ========== -->
+    <div class="section">
+      <div class="section-header orange">🥛 四、旺旺资讯专栏</div>
+      <div class="section-body">
+
+        <div class="data-row"><span class="label">港股股价（5月22日收盘）</span><span class="value" style="color:#e74c3c">4.12 港元（+0.733%）</span></div>
+        <div class="data-row"><span class="label">瑞银目标价</span><span class="value">5.60 港元（买入评级）</span></div>
+        <div class="data-row"><span class="label">大摩目标价</span><span class="value">5.30 港元（与大市同步）</span></div>
+
+        <hr class="divider">
+
+        <div class="news-item">
+          <span class="tag hot">新品亮相</span>
+          <strong>旺旺携旺豆乳与旺仔牛奶56民族款亮相2026 FBIF食品饮料创新论坛。</strong>
+          以"产品深耕+场景体验"的双重模式呈现品牌展示。旺豆乳作为全新植物基饮品拓新局，旺仔牛奶56民族款延续民族文化传播，形成"创新突破+文化传承"的双线品牌表达。
+          <span class="url">https://www.163.com/dy/article/KRMQSTAV0514R9OJ.html</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag new">战略布局</span>
+          <strong>旺旺集团布局宠物食品赛道，潍坊工厂拟转建宠食基地。</strong>
+          面对快消食品市场的激烈竞争，旺旺集团加速多元化布局。在传统流通渠道精细化运营基础上，集团将旺旺食品潍坊工厂转型建设宠物食品生产基地，开拓新的增长赛道。
+          <span class="url">https://stockpage.10jqka.com.cn/00151/</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag event">品牌推广</span>
+          <strong>旺旺参加2026消费名品大会（5月13日），台资企业品牌集中亮相。</strong>
+          旺旺作为台资企业代表品牌参加消费名品大会，展示旗下多元产品矩阵。集团持续深耕传统流通渠道精细化运营，系统化管理批发、商超、零食量贩、社区小店等多元化终端。
+          <span class="url">https://quote.eastmoney.com/hk/00151.html</span>
+        </div>
+
+        <div class="news-item">
+          <span class="tag data">经营动态</span>
+          <strong>中国旺旺拟6月30日举行董事会会议审批年度业绩。</strong>
+          瑞银此前预计2026财年全年收入及净利润分别同比增长2%及下跌9%，广告费用增加拖累上半财年利润。大摩维持"与大市同步"评级，对2025-2026财年毛利率持乐观预期。
+          <span class="url">https://baijiahao.baidu.com/s?id=1849731299217357889</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    数据来源：人民网、中新网、新浪财经、东方财富、红餐网、食品伙伴网、生意社、Concrete365等公开媒体<br>
+    本报告由AI自动采集生成，仅供参考，不构成投资建议 | 生成时间：2026-05-25 15:56
+  </div>
+
+</div>
+</body>
+</html>

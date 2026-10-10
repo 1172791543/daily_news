@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1100">
+<title>旺旺资讯早餐 | 2026年5月26日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  background:#e8eaed;color:#222;line-height:1.6;-webkit-font-smoothing:antialiased
+}
+.wrap{max-width:1100px;margin:0 auto;background:#fff;border-radius:0}
+
+/* ===== TOP NAV ===== */
+.topnav{
+  display:flex;background:#fff;border-bottom:2px solid #eee;padding:0 30px;
+  position:sticky;top:0;z-index:10
+}
+.topnav a{
+  flex:1;text-align:center;padding:16px 0;font-size:15px;font-weight:700;
+  color:#555;text-decoration:none;letter-spacing:1px;position:relative
+}
+.topnav a.on{color:#c0392b}
+.topnav a.on::after{
+  content:'';position:absolute;bottom:-2px;left:20%;right:20%;height:3px;
+  background:#c0392b;border-radius:2px
+}
+.topnav a .badge{
+  display:block;font-size:11px;color:#999;font-weight:400;margin-top:2px
+}
+
+/* ===== HEADER ===== */
+.hdr{text-align:center;padding:32px 30px 14px}
+.hdr .logo{font-size:32px;font-weight:900;color:#c0392b;letter-spacing:4px}
+.hdr .sub{font-size:15px;color:#888;margin-top:6px}
+.hdr .date{font-size:13px;color:#aaa;margin-top:3px}
+
+/* ===== SUMMARY ===== */
+.summary{
+  margin:0 30px 18px;padding:13px 18px;background:#fff9f0;
+  border-left:4px solid #e67e22;border-radius:0 8px 8px 0;
+  font-size:13px;color:#8a6d3b;line-height:1.9
+}
+.summary b{color:#c0392b}
+
+/* ===== SECTION HEAD ===== */
+.sec-hd{
+  margin:28px 30px 0;padding-bottom:10px;font-size:18px;font-weight:800;
+  color:#c0392b;border-bottom:2px solid #c0392b;letter-spacing:1px
+}
+.sec-hd .cnt{font-size:12px;color:#999;font-weight:400;margin-left:6px}
+
+/* ===== INDUSTRY GRID (3x2) ===== */
+.ind-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:14px 30px 0
+}
+.ind-card{
+  background:#fff;border:1px solid #e8e8e8;border-radius:10px;overflow:hidden;
+  box-shadow:0 1px 4px rgba(0,0,0,0.04)
+}
+.ind-card .card-top{
+  background:#fafafa;padding:11px 16px;font-size:14px;font-weight:700;
+  color:#c0392b;border-bottom:1px solid #eee;letter-spacing:0.5px
+}
+.ind-card .card-top .num{
+  display:inline-block;background:#c0392b;color:#fff;font-size:11px;
+  padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:middle
+}
+.ind-card .card-list{padding:4px 0}
+.ind-item{
+  padding:8px 16px;font-size:13px;color:#333;border-bottom:1px solid #f8f8f8;
+  line-height:1.7
+}
+.ind-item:last-child{border-bottom:none}
+.ind-item .hl{
+  color:#c0392b;font-weight:700
+}
+.ind-item .src{
+  display:block;font-size:10px;color:#bbb;margin-top:1px
+}
+.ind-item .src a{
+  color:#888;text-decoration:none;word-break:break-all
+}
+.ind-item .src a:hover{color:#c0392b;text-decoration:underline}
+.com-card .c-src a{
+  color:#bbb;text-decoration:none
+}
+.com-card .c-src a:hover{color:#c0392b;text-decoration:underline}
+.ana-card .ana-src{
+  display:block;font-size:10px;color:#bbb;margin-top:4px;text-align:right
+}
+.ana-card .ana-src a{color:#bbb;text-decoration:none}
+.ana-card .ana-src a:hover{color:#c0392b}
+
+/* ===== COMMODITY GRID (4col) ===== */
+.com-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin:14px 30px 0
+}
+.com-card{
+  background:#fff;border:1px solid #e2e2e2;border-radius:12px;
+  padding:20px 16px;text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05)
+}
+.com-card .c-icon{font-size:32px;margin-bottom:4px}
+.com-card .c-name{font-size:14px;color:#888;font-weight:600;margin-bottom:10px}
+.com-card .c-val{font-size:30px;font-weight:900;color:#1a1a1a;margin-bottom:2px}
+.com-card .c-unit{font-size:11px;color:#aaa}
+.com-card .c-chg{font-size:14px;font-weight:700;margin-top:8px}
+.c-chg.red{color:#e74c3c}
+.c-chg.green{color:#27ae60}
+.com-card .c-src{font-size:10px;color:#ccc;margin-top:4px}
+
+/* ===== ANALYSIS ROW ===== */
+.ana-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin:10px 30px 0
+}
+.ana-card{
+  background:#fcfcfc;border:1px solid #eee;border-radius:8px;
+  padding:10px 14px;font-size:13px;color:#555;line-height:1.8
+}
+.ana-card .ana-t{font-weight:700;color:#c0392b;margin-bottom:4px;font-size:13px}
+
+/* ===== AI GRID (3col) ===== */
+.ai-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:14px 30px 0
+}
+
+/* ===== WANT WANT CARD ===== */
+.ww-row{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+  margin:14px 30px 0
+}
+.ww-card{
+  border:1px solid #f0d0d0;border-radius:10px;overflow:hidden;
+  box-shadow:0 1px 4px rgba(192,57,43,0.08)
+}
+.ww-card .ww-top{
+  background:linear-gradient(135deg,#fef5f5,#fdf0f0);
+  padding:11px 16px;font-size:14px;font-weight:700;
+  color:#c0392b;border-bottom:1px solid #f5d5d5
+}
+.ww-card .ww-inner{padding:10px 16px;font-size:13px;color:#444;line-height:1.8}
+.ww-badge{
+  display:inline-block;background:#c0392b;color:#fff;padding:2px 10px;
+  border-radius:4px;font-size:12px;font-weight:700;margin-right:6px
+}
+
+/* ===== FOOTER ===== */
+.ft{
+  text-align:center;padding:28px 30px 32px;font-size:11px;color:#bbb;line-height:1.9
+}
+
+/* ===== TAGS ===== */
+.star{color:#f39c12;font-weight:700}
+.tag-red{
+  display:inline-block;background:#fee2e2;color:#c0392b;font-size:10px;
+  padding:0 6px;border-radius:3px;font-weight:600;margin-right:3px
+}
+.tag-hot{
+  display:inline-block;background:#fff3cd;color:#d35400;font-size:10px;
+  padding:0 6px;border-radius:3px;font-weight:600;margin-right:3px
+}
+
+@media(max-width:900px){
+  .ind-grid,.com-grid,.ana-grid,.ai-grid,.ww-row{grid-template-columns:1fr}
+}
+</style>
+<style>/*__WIDE__*/@media (min-width:1000px){.wrap{max-width:1500px !important}body{font-size:16px !important}.c-item,.a-item{font-size:16px !important}.card .c-tit,.ai-card .a-tit{font-size:18px !important}.sec-tag{font-size:18px !important;padding:7px 20px !important}.topbar .tb-push,.topbar .tb-content{font-size:14px !important}.topbar .tb-tag{font-size:13px !important}.com-card .c-icon{font-size:26px !important}.com-card .c-name{font-size:15px !important}.com-card .c-val{font-size:34px !important}.com-card .c-unit{font-size:13px !important}.com-card .c-chg{font-size:16px !important}.ww-card{font-size:16px !important}.ww-card .ww-t{font-size:18px !important}.badge-new,.src-link,.sec-tag .tag-num,.card .c-tit .c-num,.ai-card .a-tit .c-num{font-size:12px !important}}</style></head><body>
+<div class="wrap">
+
+<!-- ========== TOP NAV ========== -->
+<div class="topnav">
+  <a target="_blank" rel="noopener" class="on">行业动态<span class="badge">54条</span></a>
+  <a>大宗行情<span class="badge">3种</span></a>
+  <a>AI智造<span class="badge">10条</span></a>
+  <a>旺旺专栏<span class="badge">5条</span></a>
+</div>
+
+<!-- ========== HEADER ========== -->
+<div class="hdr">
+  <div class="logo">旺旺人资讯早餐</div>
+  <div class="sub">每日行业资讯摘要 · 覆盖乳制品、饮料、零食、餐饮、零售、大宗、AI、智能制造</div>
+  <div class="date">2026年5月26日（周二） · 资讯覆盖前一日（5月25日）</div>
+</div>
+
+<!-- ========== SUMMARY ========== -->
+<div class="summary"><b>🔑 今日要点</b>&nbsp;
+  ①<b>星巴克中国跨界卖衣服</b>：熊店长小镇系列5/26全国门店上新，460+门店卖服饰；&nbsp;
+  ②<b>7-Eleven灵魂人物铃木敏文辞世</b>，享年93岁；&nbsp;
+  ③<b>溜溜梅递表港交所</b>，冲刺"中国零食量贩第一股"；&nbsp;
+  ④<b>蜜雪冰城全球最大旗舰店</b>昆明试营业，面积1800平米；&nbsp;
+  ⑤<b>奈雪跨界电解质水</b>赛道再添一员，500ml×15瓶/75元；&nbsp;
+  ⑥<b>叮咚买菜Q1净利增19.6倍</b>，连续14季度盈利；&nbsp;
+  ⑦大宗：<b>棕榈油</b>低开收跌，<b>白糖</b>期货跌0.39%，<b>混凝土</b>华东多城继续下行；&nbsp;
+  ⑧<b>双汇抗生素超标37.5倍</b>、<b>央视曝光陈克明今麦郎"手擀"商标欺诈</b>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 1: 行业与竞品动态 -->
+<!-- ================================================================ -->
+<div class="sec-hd">一、行业与竞品动态<span class="cnt">| 乳制品 · 饮料 · 休闲零食 · 餐饮连锁 · 渠道零售 · 食品话题</span></div>
+
+<div class="ind-grid">
+
+  <!-- 1.1 乳制品类 -->
+  <div class="ind-card">
+    <div class="card-top">🥛 乳制品类<span class="num">4</span></div>
+    <div class="card-list">
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">认养一头牛</b>旗下哞星人上新「有机A2 β-酪蛋白婴标酸奶」与「A2 β酪蛋白发酵乳」，含4种益生菌发酵，婴标款适合6月龄+宝宝
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">天友乳业</b>推出「可乐酸奶风味发酵乳」，100%高山牧场生牛乳+藏灵菇菌株发酵，喝前摇10下有气泡感
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">中国飞鹤</b>与<b class="hl">康比特</b>战略合作，围绕乳源蛋白原料供应、产品联合研发，携手打造高品质运动营养产品
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">菲仕兰</b>荷兰北部甜炼乳生产线正式停产，运营超百年，因设备老化及产品线贡献有限，生产转移至其他工厂
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.2 饮料类 -->
+  <div class="ind-card">
+    <div class="card-top">🥤 饮料类<span class="num">16</span></div>
+    <div class="card-list">
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">奈雪的茶</b>推出「电解质水」新品，柑橘/西柚两种口味，每瓶含≥300mg电解质，低糖低卡，500ml×15瓶/75元
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b>饮料行业从"好喝"向"有用"转型</b>：<b class="hl">星巴克</b>推高蛋白拿铁PRO系列；<b class="hl">伊利</b>推透明蛋白水（9g分离乳清蛋白）；<b class="hl">蒙牛</b>推分离乳清蛋白水；<b class="hl">沪上阿姨</b>发布《膳食纤维营养改善计划》推动茶饮营养可视化
+        <span class="src"><a href="https://baijiahao.baidu.com/s?id=1866124142936167986" target="_blank">https://baijiahao.baidu.com/s?id=1866124142936167986</a></span>
+      </div>
+      <div class="ind-item">
+        1瓶<b class="hl">康师傅</b>水蜜桃仅含0.01克水蜜桃汁，NFC概念滥用致"100%果汁"名不副实，行业标签标注再引热议
+        <span class="src"><a href="https://news.foodmate.net/" target="_blank">https://news.foodmate.net/</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">库迪咖啡</b>上线三款夏日产品：「柚见美式」「百香橙橙美式」「橙C美式」，同步上线Gucci合作插画师联名包材
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">瑞幸咖啡</b>上新「Hello苹果茉莉」，含24h鲜榨NFC苹果汁+奶底+茉莉花茶
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">别样泡泡</b>上新「厚抹漂亮莓」（抹茶+多种莓果+烟酰胺）与「厚抹纤纤果蔬」（抹茶+8种果蔬），含膳食纤维11.4g/瓶
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">三得利</b>自动售货机限定乳饮料「即可饮用Yogurlet」首周创四年最高纪录，主打乳酸菌糖果风味联想
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">泸州老窖</b>跨界啤酒，申请"低嘌呤风味啤酒"专利，大麦麦芽+高粱+小麦芽配方
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">张裕</b>正研究推出"独角兽"白兰地，瞄准35岁以下人群，零售价不超100元
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        非碳酸饮料正替代苏打水成行业焦点：即饮鸡尾酒52周销量+46.4%，硬苏打-1.1%
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">BrewDog</b>联合创始人筹备新啤酒品牌"Second Best"，主打罐装啤酒，不走大规模酒吧扩张路线
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        <span class="tag-hot">新品</span><b class="hl">可口可乐</b>旗下<b class="hl">美汁源</b>推清爽复合果汁饮料，主打维C+益生元
+        <span class="src"><a href="https://www.foodaily.com/articles/41706" target="_blank">https://www.foodaily.com/articles/41706</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">益禾堂</b>：从8.3亿杯烤奶到2.2亿杯薄荷奶绿，CGO分享品类创新方法论
+        <span class="src"><a href="https://www.foodaily.com/articles/41713" target="_blank">https://www.foodaily.com/articles/41713</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.3 休闲零食类 -->
+  <div class="ind-card">
+    <div class="card-top">🍪 休闲零食类<span class="num">5</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b class="hl">溜溜梅</b>正式向港交所递交招股书，中信证券、国元国际联席保荐，募资用于产能扩建、品牌推广及数字化升级
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b>央视曝光</b><b class="hl">陈克明、今麦郎</b>等品牌：将"手擀"注册为商标印在机器制面包装上误导消费者，商标已被宣告无效但线下仍有销售
+        <span class="src"><a href="http://www.ce.cn/cysc/sp/info/" target="_blank">http://www.ce.cn/cysc/sp/info/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">双汇</b>子公司生产的猪肉被检出<b>抗生素超标37.5倍</b>，引发食品安全关注
+        <span class="src"><a href="http://www.ce.cn/cysc/sp/info/" target="_blank">http://www.ce.cn/cysc/sp/info/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">谷雨</b>（护肤品品牌）宣布进军食品保健品及创新药赛道，去年销售额突破60亿元
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">鲟龙科技</b>完成港股上市备案，鱼子酱第一股即将诞生
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.4 餐饮连锁相关产品 -->
+  <div class="ind-card">
+    <div class="card-top">🍽️ 餐饮连锁相关产品<span class="num">10</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b class="hl">星巴克中国</b>回应部分门店开卖衣服：熊店长小镇系列5/26全国上新，460+门店售卖潮玩、服饰、包帽等
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item">
+        全球最大<b class="hl">蜜雪冰城</b>昆明旗舰店试营业，面积约1800㎡，融合"春城花都"IP与非遗元素，5/29正式开业
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">星巴克</b>美国市场复苏计划盯上零食：高蛋白、功能性零食借门店渠道走红，被称为"星巴克效应"
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">喜力</b>准备迎接CEO Dolf van den Brink下月离任，继任者遴选接近完成
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">百胜中国</b>被指未入怡和餐饮交易第二轮名单（怡和旗下肯德基/必胜客/PHD亚太子公司，估值约5亿美元）
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">7-Eleven</b>灵魂人物铃木敏文因心脏衰竭辞世，享年93岁，将便利店从美国引入日本并成全球巨擘
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">寿司郎</b>卫生风波升级：浙江全省突击检查12家，5家整改、1家立案，省市场监管局联合约谈
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">爱普股份</b>拟4.5亿元收购挪亚圣诺100%股权，切入Omega-3鱼油功能性营养原料赛道，三年承诺净利1.5亿
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">诺和新元</b>（Novonesis）天津+太仓两大重点项目竣工，天津为全球重要多用途酶制剂基地
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">思格瑞</b>高端食品研制总部+5A级智能工厂落地无锡，总投资3亿元
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.5 渠道与零售动态 -->
+  <div class="ind-card">
+    <div class="card-top">🏪 渠道与零售动态<span class="num">8</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b class="hl">沃尔玛</b>2027财年Q1中国净销售额同比+22.3%至80亿美元（约544亿元），电商+31%，数字化业务占比升至50%
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">好特卖</b>全国首家生鲜概念店落地上海，早7点营业覆盖买菜早高峰，自有品牌占比高
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">叮咚买菜</b>2026Q1营收58.93亿元（+7.5%），GMV 63.33亿元（+6.3%），净利润1.65亿元（+19.6倍），连续14季度盈利
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item">
+        传<b class="hl">阿里、京东、美团</b>竞购<b class="hl">朴朴超市</b>，估值约20-50亿美元；京东回应"无此计划"
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">开市客</b>（Costco）入驻京东开设官方旗舰店，非会员下单比会员价贵20%
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">济南青岛山姆</b>"偷吃"争议反转：核心画面时间早于两店开业，地点位于外地，山姆客服未收到专项通知
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">霸王茶姬</b>4款特调茶上线+5城geelato首发，按下品类创新加速键
+        <span class="src"><a href="https://www.foodaily.com/articles/41718" target="_blank">https://www.foodaily.com/articles/41718</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">三得利</b>携手央视网亮出30年乌龙茶品质"底牌"，联名纪录片深度传播
+        <span class="src"><a href="https://www.foodaily.com/articles/41709" target="_blank">https://www.foodaily.com/articles/41709</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.6 食品热度话题/其他 -->
+  <div class="ind-card">
+    <div class="card-top">🔥 食品热度话题 / 其他<span class="num">11</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b>市场监管总局通报40批次食品抽检不合格</b>，贵州、广西等多省同步发布最新抽检通告
+        <span class="src"><a href="https://news.foodmate.net/" target="_blank">https://news.foodmate.net/</a></span>
+      </div>
+      <div class="ind-item"><b>食品标签虚假案被罚19万余元</b>，NFC"100%果汁"概念滥用遭曝光，康师傅水蜜桃仅含0.01克果汁引标签标注争议
+        <span class="src"><a href="https://news.foodmate.net/" target="_blank">https://news.foodmate.net/</a></span>
+      </div>
+      <div class="ind-item"><b>德国正式将培育肉与精密发酵纳入国家"高科技议程"</b>，计划2027年前建立国家级细胞培养与精密发酵创新中心
+        <span class="src"><a href="https://www.foodaily.com/dailies/1081" target="_blank">https://www.foodaily.com/dailies/1081</a></span>
+      </div>
+      <div class="ind-item">
+        我国累计发布<b>食品安全标准1750项</b>，涉及2万+指标，覆盖340+食品类别，涵盖"从农田到餐桌"全环节
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">万物一口</b>鱼油猫条被指含三聚氰胺，品牌方加急送检，称产品合法合规
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">佳沛</b>（Zespri）中国销量占比30%，自2022年起稳居全球最大单一消费市场
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">瑞士Coop超市</b>KitKat失窃追踪误判事件：雀巢生产批号重复导致系统误报，排除失窃商品流入
+        <span class="src"><a href="https://www.foodinc.com.cn/2026/05/25/" target="_blank">https://www.foodinc.com.cn/2026/05/25/</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">蛋白创新</b>成行业确定性机会：<b class="hl">伊利、蒙牛</b>推透明蛋白水，<b class="hl">星巴克</b>上高蛋白拿铁，<b class="hl">富祥生物</b>未冉蛋白获批新食品原料
+        <span class="src"><a href="https://www.foodaily.com/articles/41714" target="_blank">https://www.foodaily.com/articles/41714</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">电解质水赛道</b>持续升温：奈雪入局后，2026年累计超20款新品，赛道从27亿暴增至约200亿
+        <span class="src">多源综合</span>
+      </div>
+      <div class="ind-item"><b>良之隆·2026中国食材原料电商节</b>5月25日青岛开幕，山东临沂糖酒会5月29日启幕
+        <span class="src"><a href="https://news.foodmate.net/" target="_blank">https://news.foodmate.net/</a></span>
+      </div>
+      <div class="ind-item"><b>宋书玉理事长详解酒业10大发展趋势</b>；2026年一季度奶业进出口数据发布，益生菌产业论坛聚焦精准营养
+        <span class="src"><a href="https://news.foodmate.net/" target="_blank">https://news.foodmate.net/</a></span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /ind-grid -->
+
+<!-- ================================================================ -->
+<!-- SECTION 2: 大宗行情 -->
+<!-- ================================================================ -->
+<div class="sec-hd">二、大宗行情<span class="cnt">| 棕榈油 · 白糖 · 混凝土</span></div>
+
+<div class="com-grid">
+  <!-- 棕榈油 -->
+  <div class="com-card">
+    <div class="c-icon">🛢️</div>
+    <div class="c-name">棕榈油</div>
+    <div class="c-val">—</div>
+    <div class="c-unit">国内港口现货（5/25 价格下跌）</div>
+    <div class="c-chg green">▼ 期货低开收跌</div>
+    <div class="c-src"><a href="https://www.chinagrain.cn/zonglvyou/" target="_blank">https://www.chinagrain.cn/zonglvyou/</a></div>
+  </div>
+  <!-- 白糖 -->
+  <div class="com-card">
+    <div class="c-icon">🍬</div>
+    <div class="c-name">白糖</div>
+    <div class="c-val">5,350</div>
+    <div class="c-unit">元/吨（郑商所2609合约 · 5/25午盘）</div>
+    <div class="c-chg green">▼ 跌21元（-0.39%）</div>
+    <div class="c-src"><a href="https://www.yntw.com/" target="_blank">https://www.yntw.com/</a></div>
+  </div>
+  <!-- 混凝土 -->
+  <div class="com-card">
+    <div class="c-icon">🏗️</div>
+    <div class="c-name">混凝土（C30）</div>
+    <div class="c-val">306~420</div>
+    <div class="c-unit">元/方（华东主要城市 · 5/22）</div>
+    <div class="c-chg green">▼ 多地跌2元/方</div>
+    <div class="c-src"><a href="https://www.100njz.com/article/p-5087-------------1.html" target="_blank">https://www.100njz.com/article/p-5087-------------1.html</a></div>
+  </div>
+  <!-- 国际棕榈油 -->
+  <div class="com-card">
+    <div class="c-icon">🌴</div>
+    <div class="c-name">国际棕榈油</div>
+    <div class="c-val">周涨</div>
+    <div class="c-unit">亚洲现货本周四周来首次上涨</div>
+    <div class="c-chg red">▲ 周度反弹</div>
+    <div class="c-src"><a href="https://www.chinagrain.cn/zonglvyou/" target="_blank">https://www.chinagrain.cn/zonglvyou/</a></div>
+  </div>
+</div>
+
+<div class="ana-grid">
+  <div class="ana-card">
+    <div class="ana-t">🛢️ 棕榈油分析</div>
+    · 5/25大连期货低开收跌，马盘受原油大跌+出口疲软拖累走弱<br>
+    · 国内各港口24度棕榈油交货价下跌（VIP报价未公开）<br>
+    · 印尼出口新政引发市场混乱，印度趁机抢购现货<br>
+    · 印尼新政豁免部分棕油衍生品，出口集中化计划迎来调整
+    <span class="ana-src"><a href="https://www.chinagrain.cn/zonglvyou/" target="_blank">https://www.chinagrain.cn/zonglvyou/</a></span>
+  </div>
+  <div class="ana-card">
+    <div class="ana-t">🍬 白糖分析</div>
+    · 主力2609合约收5350元/吨，日内最高5378/最低5345<br>
+    · 山东星光糖业一级白砂糖6050元/吨，优级绵白糖6200元/吨<br>
+    · 4月进口糖浆14.27万吨，环比+16.11%，有品类增4倍<br>
+    · 广西百色市印发糖业三年方案"一扩三提"（扩面积、提单产、提机收、提工艺）
+    <span class="ana-src"><a href="https://www.yntw.com/" target="_blank">https://www.yntw.com/</a></span>
+  </div>
+  <div class="ana-card">
+    <div class="ana-t">🏗️ 混凝土分析</div>
+    · 全国市场偏弱运行，华东多城跌2元/方（六安320-350、安庆320-420、芜湖310-330、福州306-316）<br>
+    · 原材料（水泥砂石）价格回落+雨水天气频繁导致需求不振<br>
+    · 乌鲁木齐周跌4元/方，天津高位运行，上海持稳
+    <span class="ana-src"><a href="https://www.100njz.com/article/p-5087-------------1.html" target="_blank">https://www.100njz.com/article/p-5087-------------1.html</a></span>
+  </div>
+  <div class="ana-card">
+    <div class="ana-t">📊 大宗综述</div>
+    · 棕榈油：短空长多——印尼政策扰动加剧但需求季节性回暖<br>
+    · 白糖：淡季承压——期货三连阴，进口糖浆增量超预期<br>
+    · 混凝土：需求疲软——雨水+房地产新开工低迷，短期难改弱势<br>
+    · 关注：印尼出口税政策调整、巴西新榨季糖产量、国内基建项目开工节奏
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 3: AI与智能制造 -->
+<!-- ================================================================ -->
+<div class="sec-hd">三、AI与智能制造<span class="cnt">| AI前沿 · 智能制造 · 数字化转型</span></div>
+
+<div class="ai-grid">
+
+  <div class="ind-card">
+    <div class="card-top">🤖 AI前沿动态<span class="num">4</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b>腾讯研究院AI速递20260525</b>：OpenAI将推标准版+Pro双版本策略（Pro主打智能体工作流）；<b class="hl">Claude Opus 4.8</b>即将发布；<b class="hl">DeepSeek V4 Pro</b> API永久降价
+        <span class="src"><a href="https://www.sohu.com/a/1027062638_455313" target="_blank">https://www.sohu.com/a/1027062638_455313</a></span>
+      </div>
+      <div class="ind-item"><b>关于AI就业</b>：1亿条招聘数据揭示——中国AI高级岗位占比从63.18%降至60.87%，初级岗位长周期看有跌有涨
+        <span class="src"><a href="https://www.sohu.com/a/1027404878_455313" target="_blank">https://www.sohu.com/a/1027404878_455313</a></span>
+      </div>
+      <div class="ind-item"><b>醒云智能WakeAI 2.0平台</b>全球首发：AI智能驱动，金融数字员工正式上岗，赋能金融业数智化转型
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135331.htm" target="_blank">http://news.e-works.net.cn/category802/news135331.htm</a></span>
+      </div>
+      <div class="ind-item"><b>2026 AI Partner·北京亦庄AI+产业大会</b>举办，聚焦AI与实体产业融合落地
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135372.htm" target="_blank">http://news.e-works.net.cn/category802/news135372.htm</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ind-card">
+    <div class="card-top">🏭 智能制造与数字化<span class="num">4</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b class="hl">施耐德电气</b>：以实效型AI赋能快速消费品行业新增长，覆盖生产、质检、供应链全链路
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135350.htm" target="_blank">http://news.e-works.net.cn/category802/news135350.htm</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">丹佛斯传动</b>双场景能效方案亮相绿色工厂厂务大会，聚焦绿色制造与数据中心
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135357.htm" target="_blank">http://news.e-works.net.cn/category802/news135357.htm</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">卡萨帝冰箱</b>（海尔旗下）全球首创细胞级解冻技术，献礼品牌20周年
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135334.htm" target="_blank">http://news.e-works.net.cn/category802/news135334.htm</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">海尔云溪冰箱</b>618稳居抖音TOP1，联合南艺学子打造"最美栖溪地"创意营销
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135330.htm" target="_blank">http://news.e-works.net.cn/category802/news135330.htm</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ind-card">
+    <div class="card-top">📡 行业展会与产业动态<span class="num">4</span></div>
+    <div class="card-list">
+      <div class="ind-item"><b>第四届链博会</b>倒计时30天，6月22日北京开幕，专业观众与公众免费注册入场
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135327.htm" target="_blank">http://news.e-works.net.cn/category802/news135327.htm</a></span>
+      </div>
+      <div class="ind-item"><b>科智咨询</b>启动《算力底座之争：智算芯片产业链白皮书》参编征集，聚焦竞争态势与趋势研判
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135333.htm" target="_blank">http://news.e-works.net.cn/category802/news135333.htm</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">艺卓</b>（EIZO）亮相CHCC 2026，聚焦手术室场景展现专业影像实力
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135332.htm" target="_blank">http://news.e-works.net.cn/category802/news135332.htm</a></span>
+      </div>
+      <div class="ind-item"><b class="hl">信华信</b>30周年数智盛典圆满举行，"立信卅载 智敬未来"
+        <span class="src"><a href="http://news.e-works.net.cn/category802/news135371.htm" target="_blank">http://news.e-works.net.cn/category802/news135371.htm</a></span>
+    </div>
+  </div>
+
+</div><!-- /ai-grid -->
+
+<!-- ================================================================ -->
+<!-- SECTION 4: 旺旺资讯专栏 -->
+<!-- ================================================================ -->
+<div class="sec-hd">四、旺旺资讯专栏<span class="cnt">| 旺旺集团动态 · 产品矩阵 · 竞品监测</span></div>
+
+<div class="ww-row">
+
+  <div class="ww-card">
+    <div class="ww-top">🏷️ 旺旺产品矩阵动态</div>
+    <div class="ww-inner">
+      <p><span class="ww-badge">关注</span><b>乳制品赛道新品频出</b>：天友乳业可乐酸奶、认养一头牛有机A2婴标酸奶、飞鹤跨界运动营养——乳制品创新从"基础营养"向"功能化+场景化"加速演进，旺旺乳制品线需关注差异化创新方向。</p>
+      <p style="margin-top:8px"><span class="ww-badge">趋势</span><b>电解质水赛道白热化</b>：奈雪跨界入局后，2026年累计超20款新品面世，赛道规模从27亿暴增至约200亿。旺旺可评估旗下饮料线（如O泡果奶）是否具备切入运动/功能饮料赛道的可能。</p>
+    </div>
+  </div>
+
+  <div class="ww-card">
+    <div class="ww-top">🎯 竞品品牌监测</div>
+    <div class="ww-inner">
+      <p><span class="ww-badge">乳品</span><b class="hl">伊利、蒙牛</b>持续领跑乳业Q1，伊利确立"一超"优势（唯一营收净利双增）；<b class="hl">光明</b>Q1净利润暴跌52.74%。旺旺乳饮（旺仔牛奶、纯牛奶、高钙纯牛奶）需关注乳业格局变化。</p>
+      <p style="margin-top:8px"><span class="ww-badge">渠道</span><b>叮咚买菜Q1净利增19.6倍、沃尔玛中国+22.3%</b>：即时零售+会员店双渠道高速增长，旺旺需持续优化全渠道布局。</p>
+      <p style="margin-top:8px"><span class="ww-badge">跨界</span><b>星巴克卖衣服、蜜雪冰城开1800㎡旗舰店</b>：餐饮品牌"生活方式化"趋势明显，旺旺可关注品牌IP延伸与体验式零售。</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="ww-row" style="margin-top:16px">
+
+  <div class="ww-card">
+    <div class="ww-top">📈 行业趋势洞察</div>
+    <div class="ww-inner">
+      <p><span class="ww-badge">蛋白</span><b>蛋白创新成确定性机会</b>：德国将培育肉+精密发酵纳入国家战略，飞鹤跨界运动营养蛋白，乳源蛋白应用场景从婴配粉向运动营养拓展。</p>
+      <p style="margin-top:8px"><span class="ww-badge">零售</span><b>即时零售估值飙升</b>：朴朴超市估值20-50亿美元，阿里/美团/京东三方竞购，即时零售赛道从"烧钱"转向"盈利+估值双升"。</p>
+      <p style="margin-top:8px"><span class="ww-badge">AI</span><b>AI赋能快消行业加速</b>：施耐德电气"实效型AI"方案覆盖快消生产全链路；<b>DeepSeek V4 Pro降价</b>降低企业AI应用门槛。</p>
+    </div>
+  </div>
+
+  <div class="ww-card">
+    <div class="ww-top">🔔 风险与机会提示</div>
+    <div class="ww-inner">
+      <p><span class="ww-badge" style="background:#e74c3c">风险</span><b>食品安全监管趋严</b>：寿司郎被浙江全省约谈+立案，食品安全标准累计1750项，企业合规成本持续上升。</p>
+      <p style="margin-top:8px"><span class="ww-badge" style="background:#e74c3c">风险</span><b>棕榈油价格波动</b>：印尼出口新政扰动全球供应链，旺旺旗下涉及油脂原料的产品需关注成本端变化。</p>
+      <p style="margin-top:8px"><span class="ww-badge" style="background:#27ae60">机会</span><b>非碳酸饮料崛起</b>：即饮鸡尾酒+46.4%、硬苏打-1.1%，Z世代偏好功能性+顺滑口感，旺旺饮料线可把握口味创新机会。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="ft"><b>数据来源</b><br>
+  AI资讯：腾讯研究院（搜狐号）mp.sohu.com · 食品资讯：Foodaily每日食品 foodaily.com · 行业快讯：小食代 foodinc.com.cn<br>
+  综合资讯：中国经济网 ce.cn · 食品伙伴网 news.foodmate.net · 中国食品报（百家号） · 中国食品新闻网 cfnews.com.cn<br>
+  棕榈油：中国粮油信息网 chinagrain.cn · 白糖：云南糖网 yntw.com · 混凝土：百年建筑网 100njz.com · 智能制造：e-works news.e-works.net.cn<br><br>
+  报告生成时间：2026年5月26日 09:00 · 资讯覆盖日期：2026年5月25日<br>
+  ⚠️ 食品热度话题（iallfood.com）本日源站抓取失败，该板块仅收录已验证交叉内容<br>
+  ⚠️ 棕榈油、混凝土部分价格数据为VIP付费内容，具体报价以源站为准
+</div>
+
+</div><!-- /wrap -->
+</body>
+</html>
